@@ -13,7 +13,7 @@
       </div>
       <img-loader *ngIf="!journey.imageUrl"></img-loader>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 info">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Info</h3>
@@ -37,8 +37,21 @@
           </li>
         </ul>
       </div>
-      <a class="btn btn-default" [routerLink]="['/edit-journey/'+journey.$key]">Edit</a>
-      <a class="btn btn-danger" (click)="deleteJourney()">Delete</a>
+      <a class="btn btn-default" [routerLink]="['/edit-journey/'+journey.$key]"><i class="fa fa-pencil"></i></a>
+      <a class="btn btn-danger" (click)="modal.open()"><i class="fa fa-trash-o"></i></a>
+      <modal #modal>
+          <modal-header [show-close]="true">
+              <h4 class="modal-title">Warning!</h4>
+          </modal-header>
+          <modal-body>
+            <h6>This action CANNOT be undone. This will permanently delete the {{journey.title}} journey!</h6>
+            <h6>Are you sure you want to delete it?</h6>
+          </modal-body>
+          <modal-footer>
+            <a class="btn btn-danger" (click)="deleteJourney()">Yes</a>
+            <a class="btn btn-primary" (click)="modal.close()">No</a>
+          </modal-footer>
+      </modal>
     </div>
     <div class="col-md-5">
       <div class="panel panel-primary">

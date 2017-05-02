@@ -82,6 +82,9 @@ i {
 .select_type option{
   padding-left: 10px !important;
 }
+.modal-header {
+  background-color: gold;
+}
 @media (min-width: 1200px){
   .back-btn {
     top: 17px;
@@ -91,5 +94,10 @@ i {
   .form-wrap {
     margin:0 auto;
     width: 500px;
+  }
+}
+@media (max-width: 992px) {
+  .info a.btn {
+    margin-bottom: 20px;
   }
 }

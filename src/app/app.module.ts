@@ -12,6 +12,8 @@ import { AgmCoreModule } from "angular2-google-maps/core";
 
 import { Daterangepicker } from 'ng2-daterangepicker';
 
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { JourneysComponent } from './components/journeys/journeys.component';
@@ -66,9 +68,10 @@ const appRoutes: Routes = [
       apiKey: "AIzaSyCS-RcG72Lw_QAkqewOKolhI5m2bCOG_5E",
       libraries: ["places"]
     }),
-    Daterangepicker
+    Daterangepicker,
+    Ng2Bs3ModalModule
   ],
   providers: [FirebaseService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
