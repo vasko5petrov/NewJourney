@@ -1,0 +1,57 @@
+<div *ngIf="journey">
+  <div class="row">
+    <div class="col-lg-12">
+        <a class="btn btn-primary back-btn" [routerLink]="['/journeys']"><i class="fa fa-angle-left"></i></a>
+        <h2 class="page-header">{{journey.title}} <small>{{journey.location.name}}</small></h2>
+    </div>
+  </div>
+
+  <div class="row vertical-align">
+    <div class="col-md-5">
+      <div *ngIf="journey.imageUrl" class="img-wrapper">
+        <img class="img-responsive" src="{{journey.imageUrl}}">
+      </div>
+      <img-loader *ngIf="!journey.imageUrl"></img-loader>
+    </div>
+    <div class="col-md-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Info</h3>
+        </div>
+        <ul class="list-group panel-body">
+          <li class="list-group-item"><strong><i class="fa fa-map-marker"></i></strong> {{journey.location.name}}</li>
+          <li class="list-group-item"><strong>
+            <i class="fa fa-calendar"></i></strong>
+            {{journey.duration.days}}<span *ngIf="journey.duration.days !== 1">days</span> <span *ngIf="journey.duration.days === 1">day</span>
+          </li>
+          <li class="list-group-item"><strong>Type:</strong> {{journey.type}}</li>
+          <li class="list-group-item">
+            <ul class="star-rating-list">
+              <li *ngFor="let number of starArr(journey.rating)">
+                <i class="fa fa-star"></i>
+              </li>
+              <li *ngFor="let ostars of starArr(maxRating - journey.rating)">
+                <i class="fa fa-star-o"></i>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <a class="btn btn-default" [routerLink]="['/edit-journey/'+journey.$key]">Edit</a>
+      <a class="btn btn-danger" (click)="deleteJourney()">Delete</a>
+    </div>
+    <div class="col-md-5">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Location</h3>
+        </div>
+          <sebm-google-map [latitude]="latitude" class="panel-body" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+            <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude"></sebm-google-map-marker>
+          </sebm-google-map>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<img-loader *ngIf="!journey"></img-loader>

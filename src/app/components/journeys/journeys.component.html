@@ -1,0 +1,61 @@
+<div *ngIf="journeys">
+<h2 class="page-header">My Journeys</h2>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Search journeys..." [(ngModel)]="search" name="search" (keyup)="searchJourney()">
+		</div>
+	</div>
+</div>
+	<div class="row">
+		<div class="col-md-3 col-sm-4" *ngFor="let journey of journeys">
+			<div class="panel">
+				<a [routerLink]="['/journey/'+journey.$key]">
+			  <div class="panel-heading" [style.background-image]="'url(' + journey.imageUrl + ')'">
+		       <!--<img src="{{journey.imageUrl}}"/>-->
+			  </div>
+				</a>
+			  <div class="panel-body custom-title">
+					<p>{{journey.title}}</p>
+			  </div>
+				<div class="panel-body">
+					<p>{{journey.location.name}}</p>
+					<ul class="star-rating-list">
+						<li *ngFor="let number of starArr(journey.rating)">
+							<i class="fa fa-star"></i>
+						</li>
+						<li *ngFor="let ostars of starArr(maxRating - journey.rating)">
+							<i class="fa fa-star-o"></i>
+						</li>
+					</ul>
+				</div>
+				<div class="panel-footer">
+					<a [routerLink]="['/journey/'+journey.$key]" class="btn btn-primary" role="button">More info</a>
+				</div>
+			</div>
+		</div>
+		<!--
+		<div class="col-sm-6 col-md-3" *ngFor="let journey of journeys" >
+		    <div class="thumbnail">
+		        <img src="{{journey.imageUrl}}">
+		        <div class="caption">
+			        <h3>{{journey.title}}</h3>
+			        <p>{{journey.location.name}}</p>
+			        <ul class="star-rating-list">
+		              <li *ngFor="let number of starArr(journey.rating)">
+		                <i class="fa fa-star"></i>
+		              </li>
+		              <li *ngFor="let ostars of starArr(maxRating - journey.rating)">
+		                <i class="fa fa-star-o"></i>
+		              </li>
+		            </ul>
+	            	<hr>
+		        	<p><a [routerLink]="['/journey/'+journey.$key]" class="btn btn-primary" role="button">More info</a></p>
+			    </div>
+		    </div>
+		</div>-->
+		<div class="col-xs-12" *ngIf="count === 0">Not journeys found.</div>
+	</div>
+</div>
+
+<img-loader *ngIf="!journeys"></img-loader>

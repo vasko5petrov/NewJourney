@@ -1,1 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Ubuntu:300,400,400i,700');
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Ubuntu", "Roboto", Arial, sans-serif;
+}
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Ubuntu", "Roboto", Arial, sans-serif;
+}
+.page-header {
+  margin: 1rem 0 1.8rem 0;
+}
+.row:last-child {
+  padding-bottom: 15px;
+}
+.help-block {
+  padding: 2px 8px;
+  font-style: italic;
+}
+
+nav a {
+  cursor: pointer;
+}
+.back-btn {
+  float: left;
+  top: 10px;
+  margin-right: 10px;
+}
+.star-rating {
+  font-family: 'FontAwesome';
+}
+.star-rating > fieldset {
+  border: none;
+  display: inline-block;
+}
+.star-rating > fieldset:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+  clip: rect(0, 0, 0, 0);
+}
+.star-rating > fieldset:not(:checked) > label {
+  float: right;
+  width: 1em;
+  padding: 0 .05em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 200%;
+  color: gold;
+}
+.star-rating > fieldset:not(:checked) > label:before {
+  content: '\f006  ';
+}
+.star-rating > fieldset:not(:checked) > label:hover,
+.star-rating > fieldset:not(:checked) > label:hover ~ label {
+  color: gold;
+  text-shadow: 0 0 3px gold;
+}
+.star-rating > fieldset:not(:checked) > label:hover:before,
+.star-rating > fieldset:not(:checked) > label:hover ~ label:before {
+  content: '\f005  ';
+}
+.star-rating > fieldset > input:checked ~ label:before {
+  content: '\f005  ';
+}
+.star-rating > fieldset > label:active {
+  position: relative;
+  top: 2px;
+}
+.star-rating-list {
+  display: inline;
+  padding-left: 0;
+}
+.star-rating-list li {
+  display: inline-block;
+  list-style: none;
+}
+i {
+  font-size: 20px !important;
+}
+.select_type option{
+  padding-left: 10px !important;
+}
+@media (min-width: 1200px){
+  .back-btn {
+    top: 17px;
+  }
+}
+@media (min-width: 768px) {
+  .form-wrap {
+    margin:0 auto;
+    width: 500px;
+  }
+}
