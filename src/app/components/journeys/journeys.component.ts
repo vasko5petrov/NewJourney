@@ -12,6 +12,10 @@ export class JourneysComponent implements OnInit {
   search:any;
   maxRating: any = 5;
   journeysSubscribe: any;
+  sort: any;
+  order = "date";
+  option = true;
+  nCnt: number = 0;
 
   constructor(
     private af: AngularFire,
@@ -31,7 +35,15 @@ export class JourneysComponent implements OnInit {
       }
     });
   }
-
+  sortBy(name){
+    this.order = name;
+    this.nCnt = this.nCnt + 1;
+    if(this.nCnt%2) {
+      this.option = true;
+    } else {
+      this.option = false;
+    }
+  }
   searchJourney(){
     this.af.auth.subscribe((user) => {
       if (user) {

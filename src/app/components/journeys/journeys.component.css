@@ -5,6 +5,14 @@
 	color: gold;
 	font-size: 20px;
 }
+.star {
+	color: gold;
+	cursor: pointer;
+}
+.calendar {
+	color: #2196f3;
+	cursor: pointer;
+}
 .panel-body, .panel-heading, .panel-footer {
   padding: 0;
   margin: 0;
