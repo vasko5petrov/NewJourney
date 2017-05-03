@@ -7,7 +7,7 @@
 <div *ngIf="journey">
 <div class="row">
   <div class="col-lg-12">
-    <form (submit)="onEditSubmit()" class="form-wrap">
+    <form (submit)="onEditSubmit()" ngNativeValidate class="form-wrap">
       <div class="form-group">
         <label>Title</label>
         <input type="text" name="title" [(ngModel)]="journey.title" class="form-control" required>
@@ -30,7 +30,7 @@
       </div>
       <label>Rating</label>
       <div class="star-rating">
-        <fieldset required>
+        <fieldset>
           <input type="radio" id="star5" name="rating" [(ngModel)]="journey.rating" value="5" /><label for="star5" title="Outstanding">5 stars</label>
           <input type="radio" id="star4" name="rating" [(ngModel)]="journey.rating" value="4" /><label for="star4" title="Very Good">4 stars</label>
           <input type="radio" id="star3" name="rating" [(ngModel)]="journey.rating" value="3" /><label for="star3" title="Good">3 stars</label>
@@ -42,7 +42,7 @@
 
         <div>
           <label>Image</label>
-          <input type="file" id="image" (change)="verifyImg(img)" #img name="image">
+          <input type="file" id="image" (change)="verifyImg(img)" #img name="image" accept='image/*'>
           <input type="hidden" id="imageUrl" name="imageUrl" [(ngModel)]="journey.imageUrl">
           <span *ngIf="validImage" class="help-block">The image size limit is 2MB.</span>
           <span *ngIf="!validImage" class="help-block alert-warning">Your image size is larger than 2MB in file size.</span>

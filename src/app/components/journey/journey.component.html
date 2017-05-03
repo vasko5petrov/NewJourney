@@ -37,7 +37,7 @@
           </li>
         </ul>
       </div>
-      <a class="btn btn-default" [routerLink]="['/edit-journey/'+journey.$key]"><i class="fa fa-pencil"></i></a>
+      <a class="btn btn-default" [routerLink]="['/edit-journey/'+journey.$key]"><i class="fa fa-pencil"></i>&nbsp;Edit</a>
       <a class="btn btn-danger" (click)="modal.open()"><i class="fa fa-trash-o"></i></a>
       <modal #modal>
           <modal-header [show-close]="true">

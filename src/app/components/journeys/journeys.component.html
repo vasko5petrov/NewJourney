@@ -1,19 +1,15 @@
 <div *ngIf="journeys">
 <h2 class="page-header">My Journeys</h2>
 <div class="row">
-	<div class="col-xs-7">
+	<div class="col-xs-9">
 		<div class="form-group">
 			<input type="text" class="form-control" placeholder="Search journeys..." [(ngModel)]="search" name="search" (keyup)="searchJourney()">
 		</div>
 	</div>
-	<div class="col-xs-5">
+	<div class="col-xs-3">
 		<div class="form-group">
-			<div class="col-xs-5">
-				<strong>Sort By: </strong><a (click)="sortBy('rating')" class="btn star"><i class="fa fa-star"></i></a>
-			</div>
-			<div class="col-xs-1">
-				<a (click)="sortBy('type')" class="btn btn-primary">Type</a>
-			</div>
+				<strong>Sort By: </strong><a (click)="sortBy('rating')" class="btn star float-btn"><i class="fa fa-star"></i></a>
+				<a (click)="sortBy('type')" class="btn float-btn">Type</a>
 		</div>
 	</div>
 </div>
@@ -21,7 +17,7 @@
 
 </div>
 	<div class="row">
-		<div class="col-md-3 col-sm-4" *ngFor="let journey of journeys | orderBy:order:option">
+		<div class="col-md-3 col-sm-4" *ngFor="let journey of journeys | orderBy:order:option date">
 			<div class="panel">
 				<a [routerLink]="['/journey/'+journey.$key]">
 			  <div class="panel-heading" [style.background-image]="'url(' + journey.imageUrl + ')'">
@@ -41,7 +37,7 @@
 							<i class="fa fa-star-o"></i>
 						</li>
 					</ul>
-					<p>{{journey.type}}</p>
+					<p><span class="label label-default">{{journey.type}}</span></p>
 				</div>
 				<div class="panel-footer">
 					<a [routerLink]="['/journey/'+journey.$key]" class="btn btn-primary" role="button">More info</a>

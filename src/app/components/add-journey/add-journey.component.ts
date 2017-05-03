@@ -25,7 +25,7 @@ export class AddJourneyComponent implements OnInit {
       this.daterange.start = value.start;
       this.daterange.end = value.end;
       this.daterange.label = value.label;
-      this.diffDays = Math.round(Math.abs((value.start - value.end)/(24*60*60*1000)));
+      this.diffDays = Math.round(Math.abs((this.daterange.start - this.daterange.end)/(24*60*60*1000)));
   }
 
   public latitude: number;
@@ -77,7 +77,7 @@ export class AddJourneyComponent implements OnInit {
     //this.searchControl = new FormControl();
 
     //set current position
-    this.setCurrentPosition();
+    //this.setCurrentPosition();
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
@@ -128,6 +128,9 @@ export class AddJourneyComponent implements OnInit {
       days: this.diffDays,
       dateLabel: this.daterange.start.format('YYYY-MM-DD') + ' - ' + this.daterange.end.format('YYYY-MM-DD')
     };
+    if(this.rating === undefined) {
+      this.rating = 0;
+    }
     let journey = {
       title: this.title,
       location: this.location,
