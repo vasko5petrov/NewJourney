@@ -42,8 +42,12 @@ export class JourneyComponent implements OnInit {
         this.journeySubscribe = this.firebaseService.getJourneyDetails(user.uid, this.id).subscribe(journey => {
           this.journey = journey;
           this.zoom = 12;
-        this.latitude = this.journey.location.lat;
-        this.longitude = this.journey.location.lng;
+          if(this.journey.location.lat !== undefined) {
+            this.latitude = this.journey.location.lat;
+            this.longitude = this.journey.location.lng;
+          } else {
+            console.log("lat is not defined");
+          }
         }, error => {
           console.log(error);
         });
@@ -55,9 +59,10 @@ export class JourneyComponent implements OnInit {
 
   deleteJourney() {
     this.flashMessage.show(
-      'Journey '+this.journey.city+' was deleted.',
+      'Journey '+this.journey.title+' was deleted.',
       {cssClass:'alert-success',timeout: 3000}
     );
+    this.journeySubscribe.unsubscribe();
     this.firebaseService.deleteJourney(this.journey);
 
     this.router.navigateByUrl('/journeys');

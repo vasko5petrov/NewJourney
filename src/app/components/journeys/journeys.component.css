@@ -60,3 +60,14 @@
 .float-btn {
 	float: right;
 }
+.label.Vacation {
+	background-color: #4caf50;
+}
+.label.Job {
+	background-color: orangered;
+}
+
+.sort__label {
+	display: inline;
+	width: 40px;
+}
