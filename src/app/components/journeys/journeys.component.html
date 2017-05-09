@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="col-md-9">
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Search journeys..." [(ngModel)]="search" name="search" (keyup)="searchJourney()">
+			<input type="text" class="form-control" autocomplete="off" placeholder="Search journeys..." [(ngModel)]="search" name="search" (keyup)="searchJourney()">
 		</div>
 	</div>
 	<div class="col-md-3">
@@ -16,7 +16,13 @@
 	</div>
 </div>
 <div class="row">
-
+	<div class="col-md-6 col-md-offset-3">
+		<div class="progress" style="height: 20px;">
+			<div class="progress-bar progress-bar-success" title="Vacation journeys" [style.width]="typeVacationPercent">{{typeVacationPercent}}</div>
+			<div class="progress-bar progress-bar-danger" title="Job journeys" [style.width]="typeJobPercent">{{typeJobPercent}}</div>
+			<div class="progress-bar progress-bar-neutral" title="Other journeys" [style.width]="typeOtherPercent">{{typeOtherPercent}}</div>
+		</div>
+	</div>
 </div>
 	<div class="row">
 		<div class="col-md-3 col-sm-4" *ngFor="let journey of journeys | orderBy:order:option date">

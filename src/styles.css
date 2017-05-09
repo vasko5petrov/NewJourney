@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6, p {
   font-family: "Ubuntu", "Roboto", Arial, sans-serif;
 }
 .page-header {
-  margin: 1rem 0 1.8rem 0;
+  margin: 0.8rem 0 1.8rem 0;
 }
 .row:last-child {
   padding-bottom: 15px;
@@ -95,9 +95,9 @@ i {
 .modal-header {
   background-color: gold;
 }
-@media (min-width: 1200px){
+@media (min-width: 1400px){
   .back-btn {
-    top: 17px;
+    top: 17px!important;
   }
 }
 @media (min-width: 768px) {

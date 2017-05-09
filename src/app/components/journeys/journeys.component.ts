@@ -17,6 +17,31 @@ export class JourneysComponent implements OnInit {
   option = true;
   nCnt: number = 0;
 
+  typeOtherPercent: any;
+  typeVacationPercent: any;
+  typeJobPercent: any;
+
+  private journeysPercent() {
+    let totalJourneys = this.journeys.length;
+    let typeOther = 0, typeVacation = 0, typeJob = 0;
+    for (let i = 0; i < totalJourneys; i++) {
+      if(this.journeys[i].type === "Other") {
+        typeOther++;
+      } else if(this.journeys[i].type === "Vacation") {
+        typeVacation++;
+      } else if(this.journeys[i].type === "Job") {
+        typeJob++;
+      }
+    }
+    if(totalJourneys === 0) {
+      this.typeOtherPercent = this.typeVacationPercent = this.typeJobPercent = "0%";
+    } else {
+      this.typeOtherPercent = Math.floor((typeOther/totalJourneys)*100) + "%";
+      this.typeVacationPercent = Math.floor((typeVacation/totalJourneys)*100) + "%";
+      this.typeJobPercent = Math.floor((typeJob/totalJourneys)*100) + "%";
+    }
+  }
+
   constructor(
     private af: AngularFire,
     private firebaseService: FirebaseService
@@ -27,6 +52,7 @@ export class JourneysComponent implements OnInit {
       if (user) {
         this.journeysSubscribe = this.firebaseService.getJourneys(user.uid).subscribe(journeys => {
           this.journeys = journeys;
+          this.journeysPercent();
         }, error => {
           console.log(error);
         });
@@ -54,6 +80,7 @@ export class JourneysComponent implements OnInit {
         });*/
         this.firebaseService.getJourneysByQuery(user.uid, this.search.toLowerCase()).subscribe(journeys => {
         this.journeys = journeys;
+        this.journeysPercent();
       }, error => {
           console.log(error);
         });

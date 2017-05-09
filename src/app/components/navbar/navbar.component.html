@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -12,7 +12,7 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-left">
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/']">Home</a></li>
-        <li *ngIf="(af.auth | async)" routerLinkActive="active"><a [routerLink]="['/journeys']">Journeys</a></li>
+        <li *ngIf="(af.auth | async)" routerLinkActive="active"><a [routerLink]="['/journeys']">My Journeys</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li role="separator" class="divider"></li>

@@ -1,3 +1,13 @@
+.progress-bar-neutral {background-color:#bbbbbb}
+.progress-bar {
+	-webkit-box-shadow:inset 0 -1px 0 rgba(0,0,0,0.15);
+	box-shadow:inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+.progress{
+	border-radius:4px;
+	-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,0.1);
+	box-shadow:inset 0 1px 2px rgba(0,0,0,0.1)
+}
 .thumbnail img {
 	height: 200px;
 }
@@ -64,7 +74,7 @@
 	background-color: #4caf50;
 }
 .label.Job {
-	background-color: orangered;
+	background-color: #e51c23;
 }
 
 .sort__label {
