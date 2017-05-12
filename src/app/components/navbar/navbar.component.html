@@ -26,9 +26,10 @@
             <img src="{{user.photoUrl}}" class="img-circle user-avatar"> {{ user.name }}
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li *ngIf="(af.auth | async)" routerLinkActive="active"><a [routerLink]="['/add-journey']"> + Add Journey</a></li>
+            <li *ngIf="(af.auth | async)" routerLinkActive="active"><a [routerLink]="['/add-journey']"><i class="fa fa-plus" style="font-size: 14px!important;"></i> Add Journey</a></li>
+            <li *ngIf="(af.auth | async)" routerLinkActive="active"><a [routerLink]="['/journeys-map']"><i class="fa fa-map" style="font-size: 14px!important;"></i> Journeys Map</a></li>
              <li class="nav-divider"></li>
-            <li *ngIf="(af.auth | async)"><a (click)="logout()">Logout</a></li>
+            <li *ngIf="(af.auth | async)"><a (click)="logout()"><i class="fa fa-sign-out" style="font-size: 14px!important;"></i> Logout</a></li>
           </ul>
         </li>
         <li *ngIf="!(af.auth | async)"><a (click)="login()">Login</a></li>

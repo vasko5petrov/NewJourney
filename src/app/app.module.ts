@@ -24,6 +24,7 @@ import { JourneyComponent } from './components/journey/journey.component';
 import { AddJourneyComponent } from './components/add-journey/add-journey.component';
 import { EditJourneyComponent } from './components/edit-journey/edit-journey.component';
 import { ImgLoaderComponent } from './components/img-loader/img-loader.component';
+import { JourneysMapComponent } from './components/journeys-map/journeys-map.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAcPMIBOmjk1UpWaOHJ36q3F7DJLY2uDrc",
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
   {path: 'journeys', component: JourneysComponent},
   {path: 'journey/:id', component: JourneyComponent},
   {path: 'add-journey', component: AddJourneyComponent},
-  {path: 'edit-journey/:id', component: EditJourneyComponent}
+  {path: 'edit-journey/:id', component: EditJourneyComponent},
+  {path: 'journeys-map', component: JourneysMapComponent}
 ];
 @Pipe({
     name: 'orderBy'
@@ -98,7 +100,8 @@ export class OrderBy{
     JourneyComponent,
     AddJourneyComponent,
     EditJourneyComponent,
-    ImgLoaderComponent
+    ImgLoaderComponent,
+    JourneysMapComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<div *ngIf="journeys">
+  <h2 class="page-header">Journeys Map</h2>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">&nbsp;</h3>
+    </div>
+      <sebm-google-map #gm [latitude]="latitude" class="panel-body" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <sebm-google-map-marker
+        *ngFor="let m of journeys; let i = index"
+        [latitude]="m.location.lat"
+        [longitude]="m.location.lng"
+        [markerDraggable]="false"
+        (markerClick)="gm.lastOpen?.close(); gm.lastOpen = infoWindow"
+        [iconUrl]="setMarkerIcon(m)"
+        >
+        <sebm-google-map-info-window class="infoWindow" #infoWindow>
+          <a [routerLink]="['/journey/'+m.$key]">
+          <strong>{{m.title}}</strong></a>
+          <p>{{m.location.name}}</p>
+        </sebm-google-map-info-window>
+        </sebm-google-map-marker>
+      </sebm-google-map>
+  </div>
+</div>
+<img-loader *ngIf="!journeys"></img-loader>

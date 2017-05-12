@@ -9,9 +9,9 @@ import { FirebaseService } from '../../services/firebase.service';
 })
 export class JourneysComponent implements OnInit {
   journeys: any;
+  journeysSubscribe: any;
   search:any;
   maxRating: any = 5;
-  journeysSubscribe: any;
   sort: any;
   order = "date";
   option = true;
