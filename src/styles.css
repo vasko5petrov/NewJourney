@@ -76,7 +76,7 @@ nav a {
   display: inline-block;
   list-style: none;
 }
-i {
+.navbar i {
   font-size: 20px !important;
 }
 .select_type option{

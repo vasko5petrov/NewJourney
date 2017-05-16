@@ -46,12 +46,14 @@ export class JourneysMapComponent implements OnInit {
     console.log("Clicked marker: " +m.name);
   }
   setMarkerIcon(m) {
-    if (m.type === "Vacation") {
+    if (m.type === "Mountain") {
       return "assets/images/vacation_pin.png"
-    } else if(m.type === "Job") {
+    } else if(m.type === "Monuments") {
       return "assets/images/job_pin.png"
-    } else {
+    } else if(m.type === "Sea") {
       return "assets/images/other_pin.png"
+    } else {
+      return "assets/images/pin.png"
     }
   }
 

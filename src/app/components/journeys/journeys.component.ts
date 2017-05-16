@@ -17,28 +17,32 @@ export class JourneysComponent implements OnInit {
   option = true;
   nCnt: number = 0;
 
-  typeOtherPercent: any;
-  typeVacationPercent: any;
-  typeJobPercent: any;
+  typeSeaPercent: any;
+  typeSpaPercent: any;
+  typeMountainPercent: any;
+  typeMonumentsPercent: any;
 
   private journeysPercent() {
     let totalJourneys = this.journeys.length;
-    let typeOther = 0, typeVacation = 0, typeJob = 0;
+    let typeSea = 0, typeSpa = 0, typeMountain = 0, typeMonuments = 0;
     for (let i = 0; i < totalJourneys; i++) {
-      if(this.journeys[i].type === "Other") {
-        typeOther++;
-      } else if(this.journeys[i].type === "Vacation") {
-        typeVacation++;
-      } else if(this.journeys[i].type === "Job") {
-        typeJob++;
+      if(this.journeys[i].type === "Sea") {
+        typeSea++;
+      } else if(this.journeys[i].type === "Spa") {
+        typeSpa++;
+      } else if(this.journeys[i].type === "Mountain") {
+        typeMountain++;
+      } else if(this.journeys[i].type === "Monuments") {
+        typeMonuments++;
       }
     }
     if(totalJourneys === 0) {
-      this.typeOtherPercent = this.typeVacationPercent = this.typeJobPercent = "0%";
+      this.typeSeaPercent = this.typeSpaPercent = this.typeMountainPercent = this.typeMonumentsPercent = "0%";
     } else {
-      this.typeOtherPercent = Math.floor((typeOther/totalJourneys)*100) + "%";
-      this.typeVacationPercent = Math.floor((typeVacation/totalJourneys)*100) + "%";
-      this.typeJobPercent = Math.floor((typeJob/totalJourneys)*100) + "%";
+      this.typeSeaPercent = Math.floor((typeSea/totalJourneys)*100) + "%";
+      this.typeSpaPercent = Math.floor((typeSpa/totalJourneys)*100) + "%";
+      this.typeMountainPercent = Math.floor((typeMountain/totalJourneys)*100) + "%";
+      this.typeMonumentsPercent = Math.floor((typeMonuments/totalJourneys)*100) + "%";
     }
   }
 
