@@ -50,7 +50,8 @@ export class FirebaseService {
   }
 
   updateJourney(userId, journey) {
-
+    console.log(journey);
+    
     let storageRef = firebase.storage().ref();
     // get image file from input
     let imageFile = (<HTMLInputElement>document.getElementById('image')).files[0];
@@ -69,7 +70,7 @@ export class FirebaseService {
       // create a reference from firebase storage
       let iRef = storageRef.child(path);
 
-      // update listing with new imagePath and imageUrl
+      // update journey with new imagePath and imageUrl
       iRef.put(imageFile).then((snapshot) => {
         // get new image url from firebase storage
         this.getImageURL(path).then((url) => {
@@ -77,13 +78,13 @@ export class FirebaseService {
           journey.imagePath = path;
           // define new url
           journey.imageUrl = url;
-          // update listing
+          // update journey
           this.journey.update(journey);
         });
       });
 
     } else {
-      // update listing
+      // update journey
       this.journey.update(journey);
     }
   }
@@ -92,7 +93,7 @@ export class FirebaseService {
     // remove image from firebase storage
     let storageRef = firebase.storage().ref();
     storageRef.child(journey.imagePath).delete();
-    // remove listing from firebase database
+    // remove journey from firebase database
     this.journey.remove();
   }
 
@@ -104,7 +105,7 @@ export class FirebaseService {
 
 }
 
-// listing interface
+// journey interface
 interface Journey {
   $key: any;
   title: any;

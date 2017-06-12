@@ -79,6 +79,7 @@ export class EditJourneyComponent implements OnInit {
 
         this.journeySubscribe = this.firebaseService.getJourneyDetails(this.userId, this.id).subscribe(journey => {
           this.journey = journey;
+          console.log(this.journey);
 
           //load Places Autocomplete
           this.mapsAPILoader.load().then(() => {
@@ -130,7 +131,17 @@ export class EditJourneyComponent implements OnInit {
   }*/
 
   onEditSubmit() {
-    this.firebaseService.updateJourney(this.userId, this.journey);
+    let journey = {
+      title: this.journey.title,
+      location: this.journey.location,
+      duration: this.journey.duration,
+      type: this.journey.type,
+      rating: this.journey.rating,
+      imageUrl: this.journey.imageUrl,
+      imagePath: this.journey.imagePath
+    }
+
+    this.firebaseService.updateJourney(this.userId, journey);
     this.flashMessage.show(
       'Journey '+this.journey.title+' was edited.',
       {cssClass:'alert-success',timeout: 6000}
