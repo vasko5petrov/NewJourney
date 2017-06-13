@@ -22,6 +22,8 @@ export class JourneysComponent implements OnInit {
   typeMountainPercent: any;
   typeMonumentsPercent: any;
 
+  itemsPerPage: any = 8;
+
   private journeysPercent() {
     let totalJourneys = this.journeys.length;
     let typeSea = 0, typeSpa = 0, typeMountain = 0, typeMonuments = 0;

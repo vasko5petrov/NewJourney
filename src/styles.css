@@ -111,3 +111,101 @@ nav a {
     margin-bottom: 20px;
   }
 }
+
+
+.my-pagination .ng2-pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 23px 0;
+    border-radius: 3px
+}/*
+.my-pagination .ng2-pagination > li,
+.my-pagination .ng2-pagination > li > div{
+    display: inline;
+    cursor: pointer;
+}
+.my-pagination .ng2-pagination > li > a,
+.my-pagination .ng2-pagination > li > span,
+.my-pagination .ng2-pagination > li > div > span  {
+    position: relative;
+    float: left;
+    padding: 6px 16px;
+    line-height: 1.846;
+    text-decoration: none;
+    color: #2196f3;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    margin-left: -1px
+}
+.my-pagination .ng2-pagination > li:first-child > a,
+.my-pagination .ng2-pagination > li:first-child > span {
+    margin-left: 0;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px
+}
+.my-pagination .ng2-pagination > li:last-child > a,
+.my-pagination .ng2-pagination > li:last-child > span {
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px
+}
+.my-pagination .ng2-pagination > li > a:hover,
+.my-pagination .ng2-pagination > li > span:hover,
+.my-pagination .ng2-pagination > li > a:focus,
+.my-pagination .ng2-pagination > li > span:focus {
+    z-index: 2;
+    color: #0a6ebd;
+    background-color: #eeeeee;
+    border-color: #dddddd
+}
+.my-pagination .ng2-pagination > .current > a,
+.my-pagination .ng2-pagination > .current > div > span,
+.my-pagination .ng2-pagination > .current > a:hover,
+.my-pagination .ng2-pagination > .current > div > span:hover,
+.my-pagination .ng2-pagination > .current > a:focus,
+.my-pagination .ng2-pagination > .current > div > span:focus {
+    z-index: 3;
+    color: #ffffff;
+    background-color: #2196f3;
+    border-color: #2196f3;
+    cursor: default
+}
+.my-pagination .ng2-pagination > .disabled > span,
+.my-pagination .ng2-pagination > .disabled > span:hover,
+.my-pagination .ng2-pagination > .disabled > span:focus,
+.my-pagination .ng2-pagination > .disabled > a,
+.my-pagination .ng2-pagination > .disabled > a:hover,
+.my-pagination .ng2-pagination > .disabled > a:focus {
+    color: #bbbbbb;
+    background-color: #ffffff;
+    border-color: #dddddd;
+    cursor: not-allowed
+}*/
+.my-pagination .ng2-pagination {
+  padding: 0px;
+}
+.my-pagination .ng2-pagination li a, .my-pagination .ng2-pagination li.current, .my-pagination .ng2-pagination > .disabled {
+  position: relative;
+  display: inline-block;
+    padding: 6px 16px;
+    line-height: 1.846;
+    text-decoration: none;
+    color: #2196f3;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    margin-left: -1px;
+    cursor: pointer;
+}
+.my-pagination .ng2-pagination > .disabled {
+    color: #bbbbbb;
+    background-color: #ffffff;
+    border-color: #dddddd;
+    cursor: not-allowed;
+}
+.my-pagination .ng2-pagination li.current {
+  background-color: #2196f3;
+  border-color: #2196f3;
+  color: white;
+}
+.my-pagination .ng2-pagination li.pagination-previous a {
+
+}

@@ -26,7 +26,7 @@
 	</div>
 </div>
 	<div class="row">
-		<div class="col-md-3 col-sm-4" *ngFor="let journey of journeys | orderBy:order:option date">
+		<div class="col-md-3 col-sm-4" *ngFor="let journey of journeys | paginate: { itemsPerPage: itemsPerPage, currentPage: p } | orderBy:order:option date ">
 			<div class="panel">
 				<a [routerLink]="['/journey/'+journey.$key]">
 			  <div class="panel-heading" [style.background-image]="'url(' + journey.imageUrl + ')'">
@@ -73,7 +73,12 @@
 			    </div>
 		    </div>
 		</div>-->
-		<div class="col-xs-12" *ngIf="count === 0">Not journeys found.</div>
+		<div class="col-xs-12" *ngIf="journeys.length === 0">
+			<h4 class="text-center">No journeys found.</h4>
+		</div>
+	</div>
+	<div *ngIf="journeys.length > itemsPerPage">
+		<pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>		
 	</div>
 </div>
 <img-loader *ngIf="!journeys"></img-loader>
